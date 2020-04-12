@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h1>this is outer html</h1>
+  </div>
+</body>
+
+</html>
+
+<script>
+  var vm = new Vue({
+    // el: '#app',
+    template: "<h1>this is template</h1>",
+    render: function (createElement) {
+      return createElement('h1', 'this is render function')
+    },
+    data: {
+      message: 'Vue的生命週期'
+    },
+    beforeCreate: function () {
+      console.group('------beforeCreate創建前狀態------');
+      console.log("%c%s", "color:red", "el     : " + this.$el); 
+      console.log("%c%s", "color:red", "data   : " + this.$data); 
+      console.log("%c%s", "color:red", "message: " + this.message)
+    },
+    created: function () {
+      console.group('------created創建完畢狀態------');
+      console.log("%c%s", "color:red", "el     : " + this.$el); 
+      console.log("%c%s", "color:red", "data   : " + this.$data);  
+      console.log("%c%s", "color:red", "message: " + this.message); 
+    },
+    beforeMount: function () {
+      console.group('------beforeMount掛載前狀態------');
+      console.log("%c%s", "color:red", "el     : " + (this.$el)); 
+      console.log(this.$el);
+      console.log("%c%s", "color:red", "data   : " + this.$data);   
+      console.log("%c%s", "color:red", "message: " + this.message);   
+    },
+    mounted: function () {
+      console.group('------mounted掛載結束狀態------');
+      console.log("%c%s", "color:red", "el     : " + this.$el); 
+      console.log(this.$el);
+      console.log("%c%s", "color:red", "data   : " + this.$data);
+      console.log("%c%s", "color:red", "message: " + this.message); 
+    },
+    beforeUpdate: function () {
+      console.group('beforeUpdate 更新前狀態===============》');
+      console.log("%c%s", "color:red", "el     : " + this.$el);
+      console.log(this.$el);
+      console.log("%c%s", "color:red", "data   : " + this.$data);
+      console.log("%c%s", "color:red", "message: " + this.message);
+    },
+    updated: function () {
+      console.group('updated 更新完成狀態===============》');
+      console.log("%c%s", "color:red", "el     : " + this.$el);
+      console.log(this.$el);
+      console.log("%c%s", "color:red", "data   : " + this.$data);
+      console.log("%c%s", "color:red", "message: " + this.message);
+    },
+    beforeDestroy: function () {
+      console.group('beforeDestroy 銷毀前狀態===============》');
+      console.log("%c%s", "color:red", "el     : " + this.$el);
+      console.log(this.$el);
+      console.log("%c%s", "color:red", "data   : " + this.$data);
+      console.log("%c%s", "color:red", "message: " + this.message);
+    },
+    destroyed: function () {
+      console.group('destroyed 銷毀完成狀態===============》');
+      console.log("%c%s", "color:red", "el     : " + this.$el);
+      console.log(this.$el);
+      console.log("%c%s", "color:red", "data   : " + this.$data);
+      console.log("%c%s", "color:red", "message: " + this.message)
+    }
+  })
+</script>
